@@ -34,13 +34,6 @@ matrix:
       - python: 3.5
     include:
       - os: linux
-        env:
-          - MB_PYTHON_VERSION=2.6
-      - os: linux
-        env:
-          - MB_PYTHON_VERSION=2.6
-          - PLAT=i686
-      - os: linux
         env: MB_PYTHON_VERSION=2.7
       - os: linux
         env:
@@ -48,34 +41,13 @@ matrix:
           - UNICODE_WIDTH=16
       - os: linux
         env:
-          - MB_PYTHON_VERSION=2.7
-          - PLAT=i686
-      - os: linux
-        env:
-          - MB_PYTHON_VERSION=2.7
-          - PLAT=i686
-          - UNICODE_WIDTH=16
-      - os: linux
-        env:
           - MB_PYTHON_VERSION=3.3
-      - os: linux
-        env:
-          - MB_PYTHON_VERSION=3.3
-          - PLAT=i686
       - os: linux
         env:
           - MB_PYTHON_VERSION=3.4
       - os: linux
         env:
-          - MB_PYTHON_VERSION=3.4
-          - PLAT=i686
-      - os: linux
-        env:
           - MB_PYTHON_VERSION=3.5
-      - os: linux
-        env:
-          - MB_PYTHON_VERSION=3.5
-          - PLAT=i686
       - os: osx
         language: generic
         env:
@@ -105,7 +77,8 @@ script:
     - install_run $PLAT
 
 after_success:
-   - bash dropbox_uploader.sh upload ${TRAVIS_BUILD_DIR}/wheelhouse vaex-wheels
+   # the upload script may complain about the directory already exiting, ignore that
+   - bash dropbox_uploader.sh upload ${TRAVIS_BUILD_DIR}/wheelhouse vaex-wheels || true
     # Upload wheels to Rackspace container
     #- pip install wheelhouse-uploader
     # This uploads the wheels to a Rackspace container owned by the
