@@ -1,0 +1,6 @@
+[submodule "multibuild"]
+	path = multibuild
+	url = https://github.com/matthew-brett/multibuild.git
+[submodule "vaex"]
+	path = vaex
+	url = https://github.com/maartenbreddels/vaex
