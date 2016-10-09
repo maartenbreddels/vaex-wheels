@@ -20,7 +20,7 @@ env:
         - secure:
             "MNKyBWOzu7JAUmC0Y+JhPKfytXxY/ADRmUIMEWZV977FLZPgYctqd+lqel2QIFgdHDO1CIdTSymOOFZckM9ICUXg9Ta+8oBjSvAVWO1ahDcToRM2DLq66fKg+NKimd2OfK7x597h/QmUSl4k8XyvyyXgl5jOiLg/EJxNE2r83IA="
         # suggestion by https://github.com/matthew-brett/multibuild/issues/7
-        - osx_image: xcode6.4
+        - osx_image: beta-xcode6.1
 
 
 language: python
