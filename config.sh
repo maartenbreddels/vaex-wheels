@@ -1,5 +1,6 @@
 # Define custom utilities
 # Test for OSX with [ -n "$IS_OSX" ]
+set -x
 
 function pre_build {
     # Any stuff that you need to do before you start building the wheels
