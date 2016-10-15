@@ -2,7 +2,7 @@ env:
     global:
         - REPO_DIR=vaex
         # Commit from your-project that you want to build
-        - BUILD_COMMIT=1.0.0-beta.2
+        - BUILD_COMMIT=1.0.0-beta.3
         # pip dependencies to _build_ your project
         - BUILD_DEPENDS="Cython numpy pip"
         # pip dependencies to _test_ your project.  Include any dependencies
