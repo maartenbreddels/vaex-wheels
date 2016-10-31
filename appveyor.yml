@@ -15,21 +15,18 @@ install:
   # We need wheel installed to build wheels
   - "%PYTHON%\\python.exe -m pip install wheel"
   - "%PYTHON%\\python.exe -m pip install cython six numpy"
-  - git clone https://github.com/kapteyn-astro/kapteyn --depth 20
+  - git clone https://github.com/maartenbreddels/vaex --depth 20
+  - cd vaex
   - git tag -l
-  - git checkout tags/v2.3.1
+  - git checkout tags/1.0.0-beta.4
+  - pip install -e .
 
 build: off
 
-
 test_script:
- - python -c "import kapteyn"
- - python -c "import kapteyn.wcs"
- - python -c "import kapteyn.ascarray"
- - python -c "import kapteyn.profiles"
- - python -c "import kapteyn._nd_image"
- - python -c "import kapteyn.kmpfit"
- - python -c "import kapteyn.celestial as c; c.skymatrix((2,'j2000',c.fk5), 1)[0]"
+  - "%PYTHON%\\python.exe -m pip install cython six numpy"
+ - pip install scipy astropy matplotlib  h5py aplus tornado future futures pyyaml kapteyn cachetools progressbar2 psutil pandas pillow requests
+ - python -m "vaex.test.dataset"
 
 after_test:
   # This step builds your wheels.
