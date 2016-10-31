@@ -19,14 +19,15 @@ install:
   - cd vaex
   - git tag -l
   - git checkout tags/1.0.0-beta.4
-  - "%PYTHON%\\python.exe -m pip install -e ."
+  - "%PYTHON%\\python.exe setup.py build_ext -i"
+#  - "%PYTHON%\\python.exe -m pip install -e ."
 
 build: off
 
-test_script:
-  - "%PYTHON%\\python.exe -m pip install cython six numpy"
-  - "%PYTHON%\\python.exe -m pip install scipy astropy matplotlib  h5py aplus tornado future futures pyyaml kapteyn cachetools progressbar2 psutil pandas pillow requests"
-  - python -m "vaex.test.dataset"
+#test_script:
+  #- "%PYTHON%\\python.exe -m pip install cython six numpy"
+  #- "%PYTHON%\\python.exe -m pip install scipy astropy matplotlib  h5py aplus tornado future futures pyyaml kapteyn cachetools progressbar2 psutil pandas pillow requests"
+  #- python -m "vaex.test.dataset"
 
 after_test:
   # This step builds your wheels.
