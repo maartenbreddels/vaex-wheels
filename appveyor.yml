@@ -15,7 +15,7 @@ install:
   # We need wheel installed to build wheels
   - "%PYTHON%\\python.exe -m pip install wheel"
   - "%PYTHON%\\python.exe -m pip install cython six numpy"
-  - git clone https://github.com/maartenbreddels/vaex --depth 20
+  - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
   - git tag -l
   - git checkout tags/1.0.0-beta.4
@@ -25,7 +25,7 @@ build: off
 
 test_script:
  - "%PYTHON%\\python.exe -m pip install cython six numpy"
- - pip install scipy astropy matplotlib  h5py aplus tornado future futures pyyaml kapteyn cachetools progressbar2 psutil pandas pillow requests
+ - "%PYTHON%\\python.exe -m pip install scipy astropy matplotlib  h5py aplus tornado future futures pyyaml kapteyn cachetools progressbar2 psutil pandas pillow requests"
  - python -m "vaex.test.dataset"
 
 after_test:
