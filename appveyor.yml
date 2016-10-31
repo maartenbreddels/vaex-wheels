@@ -14,7 +14,7 @@ environment:
 install:
   # We need wheel installed to build wheels
   - "%PYTHON%\\python.exe -m pip install wheel"
-  - "%PYTHON%\\python.exe -m pip install cython six numpy"
+  - "%PYTHON%\\python.exe -m pip install cython==0.24 six numpy"
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
   - git tag -l
