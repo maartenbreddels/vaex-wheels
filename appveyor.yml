@@ -24,7 +24,7 @@ install:
 build: off
 
 test_script:
-  - "%PYTHON%\\python.exe -m pip install cython six numpy"
+ - "%PYTHON%\\python.exe -m pip install cython six numpy"
  - pip install scipy astropy matplotlib  h5py aplus tornado future futures pyyaml kapteyn cachetools progressbar2 psutil pandas pillow requests
  - python -m "vaex.test.dataset"
 
