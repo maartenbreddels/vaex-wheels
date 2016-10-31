@@ -38,4 +38,4 @@ after_test:
   - "..\\build.cmd %PYTHON%\\python.exe setup.py bdist_wheel"
 
 artifacts:
-  - path: dist\*
+  - path: vaex\dist\*
