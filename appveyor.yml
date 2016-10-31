@@ -1,0 +1,43 @@
+environment:
+  matrix:
+    - PYTHON: "C:\\Python27"
+    - PYTHON: "C:\\Python33"
+    - PYTHON: "C:\\Python34"
+    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python27-x64"
+    - PYTHON: "C:\\Python33-x64"
+      DISTUTILS_USE_SDK: "1"
+    - PYTHON: "C:\\Python34-x64"
+      DISTUTILS_USE_SDK: "1"
+    - PYTHON: "C:\\Python35-x64"
+
+install:
+  # We need wheel installed to build wheels
+  - "%PYTHON%\\python.exe -m pip install wheel"
+  - "%PYTHON%\\python.exe -m pip install cython six numpy"
+  - git clone https://github.com/kapteyn-astro/kapteyn --depth 20
+  - git tag -l
+  - git checkout tags/v2.3.1
+
+build: off
+
+
+test_script:
+ - python -c "import kapteyn"
+ - python -c "import kapteyn.wcs"
+ - python -c "import kapteyn.ascarray"
+ - python -c "import kapteyn.profiles"
+ - python -c "import kapteyn._nd_image"
+ - python -c "import kapteyn.kmpfit"
+ - python -c "import kapteyn.celestial as c; c.skymatrix((2,'j2000',c.fk5), 1)[0]"
+
+after_test:
+  # This step builds your wheels.
+  # Again, you only need build.cmd if you're building C extensions for
+  # 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct
+  # interpreter
+
+  - "build.cmd %PYTHON%\\python.exe setup.py bdist_wheel"
+
+artifacts:
+  - path: dist\*
