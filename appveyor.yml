@@ -18,7 +18,7 @@ install:
   - git clone https://github.com/maartenbreddels/vaex
   - cd vaex
   - git tag -l
-  - git checkout tags/1.0.0-beta.4
+#  - git checkout tags/1.0.0-beta.4
   - "%PYTHON%\\python.exe setup.py build_ext -i"
 #  - "%PYTHON%\\python.exe -m pip install -e ."
 
