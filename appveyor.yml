@@ -35,7 +35,7 @@ after_test:
   # 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct
   # interpreter
 
-  - "build.cmd %PYTHON%\\python.exe setup.py bdist_wheel"
+  - "..\\build.cmd %PYTHON%\\python.exe setup.py bdist_wheel"
 
 artifacts:
   - path: dist\*
