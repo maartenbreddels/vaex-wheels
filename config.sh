@@ -11,5 +11,5 @@ function pre_build {
 function run_tests {
     # Runs tests on installed distribution from an empty directory
     python --version
-    python -m vaex.test.dataset TestDataset.test_cov
+    python -c "import vaex.strings"
 }
