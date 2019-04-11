@@ -43,10 +43,13 @@ matrix:
           - UNICODE_WIDTH=16
       - os: linux
         env:
-          - MB_PYTHON_VERSION=3.4
+          - MB_PYTHON_VERSION=3.5
       - os: linux
         env:
-          - MB_PYTHON_VERSION=3.5
+          - MB_PYTHON_VERSION=3.6
+      - os: linux
+        env:
+          - MB_PYTHON_VERSION=3.7
       - os: osx
         language: objective-c
         env:
@@ -54,11 +57,15 @@ matrix:
       - os: osx
         language: objective-c
         env:
-          - MB_PYTHON_VERSION=3.4
+          - MB_PYTHON_VERSION=3.5
       - os: osx
         language: objective-c
         env:
-          - MB_PYTHON_VERSION=3.5
+          - MB_PYTHON_VERSION=3.6
+      - os: osx
+        language: objective-c
+        env:
+          - MB_PYTHON_VERSION=3.7
 
 before_install:
     - source multibuild/common_utils.sh
