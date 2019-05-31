@@ -64,22 +64,18 @@ matrix:
         language: objective-c
         env:
           - MB_PYTHON_VERSION=2.7
-          - MB_PYTHON_OSX_VER=10.13
       - os: osx
         language: objective-c
         env:
           - MB_PYTHON_VERSION=3.5
-          - MB_PYTHON_OSX_VER=10.13
       - os: osx
         language: objective-c
         env:
           - MB_PYTHON_VERSION=3.6
-          - MB_PYTHON_OSX_VER=10.13
       - os: osx
         language: objective-c
         env:
           - MB_PYTHON_VERSION=3.7
-          - MB_PYTHON_OSX_VER=10.13
 
 before_install:
     - source multibuild/common_utils.sh
