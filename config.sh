@@ -6,6 +6,11 @@ function pre_build {
     # Runs in the root directory of this repository.
     echo "pre build"
     build_pcre
+    echo "force gcc"
+    if [ -n "$IS_OSX" ]; then
+        export CC=gcc;
+        export CXX=g++;
+    fi
 }
 
 function run_tests {
