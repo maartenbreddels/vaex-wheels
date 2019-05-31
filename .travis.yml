@@ -43,8 +43,9 @@ matrix:
       # Exclude the default Python 3.5 build
       - python: 3.5
     include:
-      - os: linux
-        env: MB_PYTHON_VERSION=2.7
+      # doesn't seem to build
+      # - os: linux
+      #   env: MB_PYTHON_VERSION=2.7
       - os: linux
         env:
           - MB_PYTHON_VERSION=2.7
