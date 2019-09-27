@@ -1,24 +1,15 @@
 environment:
   matrix:
-    - PYTHON: "C:\\Python27"
-    - PYTHON: "C:\\Python33"
-    - PYTHON: "C:\\Python34"
-    - PYTHON: "C:\\Python35"
-    - PYTHON: "C:\\Python27-x64"
-# The following have no numpy, available, so impossible to build
-#    - PYTHON: "C:\\Python33-x64"
-#      DISTUTILS_USE_SDK: "1"
-#    - PYTHON: "C:\\Python34-x64"
-#      DISTUTILS_USE_SDK: "1"
-    - PYTHON: "C:\\Python35-x64"
+    - PYTHON: C:\Python36-x64
+    - PYTHON: C:\Python37-x64
 
 install:
   # We need wheel installed to build wheels
   - "%PYTHON%\\python.exe -m pip install wheel"
   - "%PYTHON%\\python.exe -m pip install cython==0.24 six numpy"
-  - git clone https://github.com/maartenbreddels/vaex
+  - git clone  --recursive  https://github.com/vaexio/vaex
   - cd vaex
-  - git tag -l
+  # - git tag -l
 #  - git checkout tags/1.0.0-beta.4
   - "%PYTHON%\\python.exe setup.py build_ext -i"
 #  - "%PYTHON%\\python.exe -m pip install -e ."
