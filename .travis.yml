@@ -2,7 +2,8 @@ env:
     global:
         - REPO_DIR=vaex
         # Commit from your-project that you want to build
-        - BUILD_COMMIT=6170b434fad115f16b017e6f57d8cc0450fd57f1
+        - BUILD_COMMIT=fix_no_export_symbols
+        # - BUILD_COMMIT=master
         # pip dependencies to _build_ your project
         - BUILD_DEPENDS="numpy pip"
         # pip dependencies to _test_ your project.  Include any dependencies
@@ -22,12 +23,10 @@ env:
         # suggestion by https://github.com/matthew-brett/multibuild/issues/7
 
 
-language: python
+language: generic
 # The travis Python version is unrelated to the version we build and test
 # with.  This is set with the MB_PYTHON_VERSION variable.
-python: 3.5
-sudo: required
-dist: trusty
+dist: xenial
 services: docker
 osx_image: xcode9.4
 
@@ -59,6 +58,9 @@ matrix:
       - os: linux
         env:
           - MB_PYTHON_VERSION=3.7
+      - os: linux
+        env:
+          - MB_PYTHON_VERSION=3.8
       - os: osx
         language: objective-c
         env:
@@ -74,6 +76,11 @@ matrix:
         env:
           - MB_PYTHON_VERSION=3.7
           - MB_PYTHON_OSX_VER=10.9
+      - os: osx
+        language: objective-c
+        env:
+          - MB_PYTHON_VERSION=3.8
+          - MB_PYTHON_OSX_VER=10.9
 
 before_install:
     - source multibuild/common_utils.sh
@@ -87,7 +94,8 @@ install:
     - build_wheel $REPO_DIR/packages/vaex-core $PLAT
 
 script:
-    - install_run $PLAT
+    - echo "Hi there travis"
+    # - install_run $PLAT
 
 after_success:
    # the upload script may complain about the directory already exiting, ignore that
