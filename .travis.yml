@@ -23,11 +23,9 @@ env:
         # suggestion by https://github.com/matthew-brett/multibuild/issues/7
 
 
-language: python
+language: generic
 # The travis Python version is unrelated to the version we build and test
 # with.  This is set with the MB_PYTHON_VERSION variable.
-python: 3.5
-sudo: required
 dist: xenial
 services: docker
 osx_image: xcode9.4
